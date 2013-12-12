@@ -57,10 +57,15 @@ WSGI_APPLICATION = 'delorean.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'delorean',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': '192.168.33.10',
+        'PORT': '5432',
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
