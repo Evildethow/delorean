@@ -19,7 +19,6 @@ class postgresql($user,$password,$database) {
 
   exec { 'create-user':
     command     => "${psql_command} -a -f ${user_file_path}",
-    path        => [ '/bin', '/usr/bin', '/usr/local/bin' ],
     logoutput   => $log_output,
     user        => $postgres_user,
     require     => Package[$enhancers],
@@ -38,7 +37,6 @@ class postgresql($user,$password,$database) {
 
   exec { 'create-database':
     command     => "${psql_command} -a -f ${database_file_path}",
-    path        => [ '/bin', '/usr/bin', '/usr/local/bin' ],
     logoutput   => $log_output,
     user        => $postgres_user,
     require     => Exec['create-user'],

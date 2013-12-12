@@ -2,8 +2,10 @@ $webapp_home = "/webapps/delorean"
 $virtualenv_name = 'env'
 $virtualenv_home = "${webapp_home}/env"
 
+Exec { path => [ '/bin', '/usr/bin', '/usr/local/bin' ] }
+
 exec { "apt-update":
-    command => "/usr/bin/apt-get update"
+    command => "apt-get update"
 }
 
 Exec["apt-update"] -> Package <| |>

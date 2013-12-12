@@ -6,7 +6,6 @@ class virtualenv($home, $name) {
 
   exec { 'init-virtualenv':
     cwd => "${home}",
-    path => '/usr/bin',
     command => "virtualenv ${name}",
     creates => "${home}/${name}",
     require => Package['python-virtualenv'],
